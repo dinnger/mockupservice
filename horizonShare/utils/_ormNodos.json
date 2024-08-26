@@ -1,0 +1,39 @@
+{
+  "as400": {
+    "host": "Host",
+    "user": "Usuario",
+    "password": "Contraseña",
+    "timeout": "30"
+  },
+  "cassandra": {
+    "host": "Host",
+    "user": "Usuario",
+    "password": "Contraseña",
+    "dataCenter": "Centro de Datos",
+    "keyspace": "Keyspace",
+    "timeout": "30"
+  },
+  "mongo": {
+    "host": "Host",
+    "database": "Base de Datos",
+    "timeout": "30"
+  },
+  "oracle": {
+    "host": "Host",
+    "user": "Usuario",
+    "password": "Contraseña",
+    "database": "Base de Datos",
+    "timeout": "30"
+  },
+  "postgres": {
+    "host": "Host",
+    "user": "Usuario",
+    "password": "Contraseña",
+    "database": "Base de Datos",
+    "port": "Puerto",
+    "connectionTimeoutMillis": "30"
+  },
+  "sqlite": {
+    "databaseName": "Base de Datos"
+  }
+}

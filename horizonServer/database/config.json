@@ -1,0 +1,23 @@
+{
+  "port": 5432,
+  "username": "gizzmo",
+  "password": "k4A<^426iGv2",
+  "database": "gizzmo",
+  "dialect": "postgres",
+  "logging": false,
+  "timezone": "UTC",
+  "define": {
+    "charset": "utf8",
+    "underscored": true,
+    "freezeTableName": true,
+    "timestamps": false
+  },
+  "pool": {
+    "handleDisconnects": true,
+    "max": 5,
+    "min": 0,
+    "idle": 10000,
+    "acquire": 30000,
+    "evict": 10000
+  }
+}

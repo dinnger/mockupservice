@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "material-icons";
+  src: url("./assets/fonts/materialdesignicons-webfont.woff2");
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #eee;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --primary:52, 152, 219
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* display: flex; */
+  /* place-items: center; */
+  /* min-width: 320px;
+  min-height: 100vh; */
+  height: 100vh;
+  width: 100%;
+  font-family: 'Onest Variable', sans-serif;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* background-image: url('@/assets/images/wallpaper.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  background: #0b0b0b;
+  overflow: hidden;
+  position: relative;
+  /* overflow-y: scroll; */
+  box-sizing:border-box;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  /* text-align: center; */
+}
+
+
+h2{
+  padding: 0;
+  margin: 0;
+}
+
+h3{
+  padding: 0;
+  margin: 0;
+  line-height: 22px;
+  margin-bottom: 20px;
+}
+
+.n-button .mdi{
+  font-size: 20px;
+}
+
+.n-drawer{
+  background-color:rgba(240, 240, 240, .7);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid #666;
+}
+
+.n-drawer-mask{
+  backdrop-filter: blur(10px);
+}
+.n-spin-container{
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.n-spin-content{
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
+
+.main-content {
+  /* background-color: red; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px;
+
+  /* overflow: hidden; */
+}
+
+.main-content.content {
+  background-color: rgba(30 30, 30,.8);
+  /* backdrop-filter: blur(20px); */
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+
+.main-content>div {
+  padding: 15px;
+  /* padding-top:26px ; */
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+
+}
+
+.main-content>div:nth-child(1) {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.main-content>div:nth-child(2) {
+  width: 100%;
+  /* padding-top: 0; */
+  height: 100%;
+  /* background-color: blue; */
+  overflow: auto;
+}
+
+.validations {
+  background-color: rgba(240, 240, 240, .7) !important;
+  backdrop-filter: blur(10px);
+}	
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(60, 60, 60);
+  /* border-radius: 2px; */
+}
+
+.md-editor-dark{
+  background-color: #222 !important;
+}
