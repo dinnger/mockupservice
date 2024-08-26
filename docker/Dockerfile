@@ -11,7 +11,7 @@ RUN npm i ajv@8.16.0
 RUN npm i ajv-formats@3.0.1
 RUN npm i ajv-i18n@4.2.0
 RUN npm i ajv-errors@3.0.0
-RUN npm i amqplib@0.10.4
+RUN npm i fast-xml-parser@4.4.0
 
 RUN npm i typescript
 
