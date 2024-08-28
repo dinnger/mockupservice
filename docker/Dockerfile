@@ -12,6 +12,8 @@ RUN npm i ajv-formats@3.0.1
 RUN npm i ajv-i18n@4.2.0
 RUN npm i ajv-errors@3.0.0
 RUN npm i fast-xml-parser@4.4.0
+RUN npm i pg@8.12.0
+RUN npm i pg-hstore@2.3.4
 
 RUN npm i typescript
 

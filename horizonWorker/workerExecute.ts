@@ -137,7 +137,7 @@ export class Executions extends EventEmitter {
         this.execStop = true
       }
     }
-    this.context.properties.value.variables = this.#environmentFlow()
+    this.context.properties.value.variables = this.#environmentFlow({ flow })
 
     // Registra los inputs de los nodos
     this.#mapInputs({ context: this.context })
@@ -585,8 +585,8 @@ export class Executions extends EventEmitter {
     }
   }
 
-  #environmentFlow ({ file }:{ file?: string } = {}) {
-    const path = `./${file}/flow.conf`
+  #environmentFlow ({ flow }:{ flow?: string } = {}) {
+    const path = `./${flow}/flow.conf`
     const variables = {}
     if (fs.existsSync(path)) {
       try {

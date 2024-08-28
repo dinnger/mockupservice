@@ -79,6 +79,11 @@ export const models = (sequelize) => {
       sourceKey: 'idNamespace' // <-- tabla actual
     })
 
+    model.hasOne(models.FLOWS.FLOW_ENV, {
+      foreignKey: 'idFlow', // <-- otra tabla
+      sourceKey: 'id' // <-- tabla actual
+    })
+
     model.hasMany(models.FLOWS.FLOW_DOC, {
       foreignKey: 'idFlow', // <-- otra tabla
       sourceKey: 'id' // <-- tabla actual

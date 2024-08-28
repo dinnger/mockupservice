@@ -4,11 +4,13 @@ const { Client } = require('pg')
 
 export function WorkerSecurity () {
   return {
+    // WorkerSecurity/list
     list: ({ node }) => {
       return new Promise((resolve, reject) => {
         const connect = async () => {
           const config = require('../config.json')
           const client = new Client({
+            connectionString: process.env.DB_CONNECT,
             host: process.env.GLOBAL_POSTGRES_HOST,
             ...config
           })
@@ -25,7 +27,7 @@ export function WorkerSecurity () {
         connect()
       })
     },
-
+    // WorkerSecurity/get
     get: ({ tag, token }) => {
       return new Promise((resolve, reject) => {
         const connect = async () => {

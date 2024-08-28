@@ -174,6 +174,6 @@ if (process.argv[3]) {
   const servicio = new WORKER({ type: process.argv[2], file: process.argv[3], port: Number(process.argv[4]) || 3000, isDev: Boolean(process.argv[5]) || false })
   await servicio.start()
   await servicio.initExecute()
-  // servicio.intSwagger()
+  servicio.intSwagger()
 }
 export default WORKER

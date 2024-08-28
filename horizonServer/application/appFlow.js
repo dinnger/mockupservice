@@ -25,6 +25,11 @@ export default function flow ({ isTemplate = false } = {}) {
 
           },
           {
+            attributes: ['config'],
+            model: db.FLOWS.FLOW_ENV,
+            required: true
+          },
+          {
             attributes: [['alias', 'owner']],
             model: db.SECURITY.USERS,
             required: true
@@ -242,7 +247,7 @@ export default function flow ({ isTemplate = false } = {}) {
         if (!isTemplate) {
           if (!fs.existsSync(`./_flows/${idFlow}.${namespace}.${name}`)) fs.mkdirSync(`./_flows/${idFlow}.${namespace}.${name}`)
           this.variables().save({ idFlow: result.id, env, session })
-          fs.writeFileSync(`./_flows/${idFlow}.${namespace}.${name}/${name}.flow`, JSON.stringify(data))
+          fs.writeFileSync(`./_flows/${idFlow}.${namespace}.${name}/${name}.flow`, JSON.stringify(data, null, ' '))
         }
         // await this.get({ reload: true, session })
         return result
@@ -294,7 +299,7 @@ export default function flow ({ isTemplate = false } = {}) {
           await t.rollback()
         }
 
-        fs.writeFileSync(`./_flows/${idFlow}.${namespace}.${name}/${name}.flow`, JSON.stringify(data))
+        fs.writeFileSync(`./_flows/${idFlow}.${namespace}.${name}/${name}.flow`, JSON.stringify(data, null, ' '))
 
         return { name, version: data.properties.version }
       }
@@ -444,6 +449,9 @@ export default function flow ({ isTemplate = false } = {}) {
                 attributes: ['id', 'name'],
                 model: db.FLOWS.FLOW,
                 required: true,
+                where: {
+                  active: true
+                },
                 include: [{
                   attributes: ['name'],
                   model: db.FLOWS.FLOW_NAMESPACES,

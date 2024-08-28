@@ -43,5 +43,5 @@
   "serverDB": "node ./server/index.js --force|| npx sequelize-cli db:seed:all",
   "sonar": "sonar-scanner   -Dsonar.projectKey=Rainkenpor_dinnger-process-2_AY8bEdYN7rc3z3McqeP5   -Dsonar.sources=.   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=sqp_6dddad5366df2d614c93b9c3e566fab7d85242cb"
  },
- "version": "2.4.0"
+ "version": "2.5.0"
 }

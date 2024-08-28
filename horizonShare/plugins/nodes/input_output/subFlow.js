@@ -39,7 +39,8 @@ export default class {
       this.properties.node.options.value = nodes.map(m => {
         return {
           label: m.title,
-          value: m.id
+          value: m.id,
+          properties: m.properties
         }
       })
     }
@@ -47,6 +48,7 @@ export default class {
     this.properties.node.options = this.ref(this.properties.node.options)
     this.properties.flow.value = this.ref(this.properties.flow.value)
     this.properties.node.value = this.ref(this.properties.node.value)
+    this.properties.data.value = this.ref(this.properties.data.value)
 
     const arr = await context.fnExternal.getFlowsList()
     this.properties.flow.options.value = arr.map(m => {
@@ -59,6 +61,17 @@ export default class {
     this.watch(this.properties.flow.value, async (value) => {
       this.properties.node.value.value = null
       reloadNodes(value)
+    })
+
+    this.watch(this.properties.node.value, async (value) => {
+      const val = this.properties.node.options.value.find(f => f.value === value)
+      if (val?.properties?.valueDefault) {
+        try {
+          this.properties.data.value.value = JSON.parse(val.properties.valueDefault.value)
+        } catch (error) {
+          this.properties.data.value.value = '{/n}'
+        }
+      }
     })
   }
 

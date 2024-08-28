@@ -1,5 +1,3 @@
-import { resolve } from 'node:path'
-
 export function fields () {
   return {
     properties: {

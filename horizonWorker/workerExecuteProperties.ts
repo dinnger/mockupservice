@@ -38,10 +38,16 @@ function initProperties ({ properties, node, input, context, isBackPropagation =
          * Validando si existe doble punto (..)
          * obj: Debido a que es doble punto crea un espacio vació con el split
          */
-        const obj = reg[index] !== '..' ? reg[index] : 'data'
-        const dobleDot = index === 2 && reg[1] === '..'
+        let dobleDot = false
+        if (reg[index] === '..') {
+          index++
+          dobleDot = true
+        }
+        const obj = reg[index]
         if (dobleDot) {
-          const resp = searchAllObject(currentObject, obj)
+          // remover array
+          const removeArray = (obj) => obj.split('[')[0]
+          const resp = searchAllObject(currentObject, removeArray(obj))
           valideData = resp !== undefined
           currentObject = resp
         }
@@ -55,23 +61,18 @@ function initProperties ({ properties, node, input, context, isBackPropagation =
           const objArr = obj.split('[')[0]
           for (let i = 0; i < arr.length; i++) {
             const arrayIndex = arr[i].replace('[', '').replace(']', '')
-            // console.log(objArr, arrayIndex)
 
             if (isNaN(arrayIndex)) {
               valideData = false
               break
             }
 
-            if (i === 0 && (!currentObject[objArr] || !Array.isArray(currentObject[objArr]) || currentObject[objArr].length <= arrayIndex)) {
+            const value = dobleDot ? currentObject[arrayIndex] : currentObject[objArr]?.[arrayIndex]
+            if (value === undefined || value === null) {
               valideData = false
               break
             }
-            if (i > 0 && (!currentObject[arrayIndex])) {
-              valideData = false
-              break
-            }
-            if (i === 0) currentObject = currentObject[objArr][arrayIndex]
-            if (i > 0) currentObject = currentObject[arrayIndex]
+            currentObject = value
           }
         }
 

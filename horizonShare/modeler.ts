@@ -53,6 +53,8 @@ export class Modeler {
       nodeOrigin: null,
       nodeOriginIndex: 0
     }
+
+    this.fnExternal = null
   }
 
   /**
@@ -242,7 +244,7 @@ export class Modeler {
    * @param {Object} param1 - La clase del nodo.
    * @param {Object} param2 - El componente dinámico asociado a la interfaz (ClientInterfaz) (opcional).
    */
-  nodeExec ({ node, nodeC, fnExternal }) {
+  nodeExec ({ node, nodeC }) {
     node.exec = {
       onCreate: () => {
         if (!nodeC.onCreate) return null
@@ -253,7 +255,7 @@ export class Modeler {
           name: this.properties.value.name,
           environment: this.environment_global,
           properties: this.properties,
-          fnExternal
+          fnExternal: this.fnExternal
         }
 
         try {
@@ -516,6 +518,7 @@ export class Modeler {
     this.nodeConnectPool = [] // Listado de conexiones pendientes de llamar
     this.nodeConnectHistory.value = [] // Historial
     this.properties.value = model.flow || model.process || model.properties || {}
+    this.fnExternal = fnExternal
 
     model.nodes.forEach(node => {
       let nodeC = null
@@ -552,7 +555,7 @@ export class Modeler {
       node.interfaz = interfaz
 
       // Asociando ejecuciones
-      if (this.origin === 'client' && nodeC.onCreate) this.nodeExec({ node, nodeC, fnExternal })
+      if (this.origin === 'client' && nodeC.onCreate) this.nodeExec({ node, nodeC })
 
       this.nodes.value[node.id] = node
       this.nodesName[node.title] = node.id
@@ -658,6 +661,10 @@ export class Modeler {
       subFlows,
       groups
     }
+  }
+
+  changeState () {
+    this.change.value = true
   }
 
   getNodesClass () {

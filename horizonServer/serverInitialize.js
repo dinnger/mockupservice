@@ -59,7 +59,7 @@ async function reloadFiles ({ dir, list, env, doc }) {
     data = JSON.stringify(data)
     if (!fs.existsSync(`./${dir}/${id}.${namespace}.${name}`)) fs.mkdirSync(`./${dir}/${id}.${namespace}.${name}`, { recursive: true })
     if (!fs.existsSync(`./${dir}/${id}.${namespace}.${name}/_doc`)) fs.mkdirSync(`./${dir}/${id}.${namespace}.${name}/_doc`, { recursive: true })
-    fs.writeFileSync(`./${dir}/${id}.${namespace}.${name}/${name}.flow`, data)
+    fs.writeFileSync(`./${dir}/${id}.${namespace}.${name}/${name}.flow`, JSON.stringify(JSON.parse(data), null, ' '))
   })
 
   env.forEach(element => {
