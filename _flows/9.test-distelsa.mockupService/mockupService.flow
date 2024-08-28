@@ -25,7 +25,7 @@
   "privacy": {
    "isPrivate": false
   },
-  "version": 32,
+  "version": 33,
   "namespace": "test-distelsa",
   "description": "Dummy",
   "privacyInfo": {
@@ -231,11 +231,11 @@
      "type": "list",
      "value": [
       {
-       "body": {
-        "value": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"WP_PLU03\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"IDOC\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"EDI_DC40\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"TABNAM\": { \"type\": \"string\" },\n                \"MANDT\": { \"type\": \"string\" },\n                \"DOCNUM\":  { \n                  \"type\": \"string\",\n                  \"pattern\": \"^[0-9]+$\",\n                  \"errorMessage\": \"Debe ser un valor numerico\" \n                },\n                \"DOCREL\": { \"type\": \"string\" },\n                \"STATUS\": { \"type\": \"string\" },\n                \"DIRECT\": { \"type\": \"string\" },\n                \"OUTMOD\": { \"type\": \"string\" },\n                \"IDOCTYP\": { \"type\": \"string\" },\n                \"MESTYP\": { \"type\": \"string\" },\n                \"SNDPOR\": { \"type\": \"string\" },\n                \"SNDPRT\": { \"type\": \"string\" },\n                \"SNDPRN\": { \"type\": \"string\" },\n                \"RCVPOR\": { \"type\": \"string\" },\n                \"RCVPRT\": { \"type\": \"string\" },\n                \"RCVPRN\": { \"type\": \"string\" },\n                \"CREDAT\": { \"type\": \"string\" },\n                \"CRETIM\": { \"type\": \"string\" },\n                \"SERIAL\": { \"type\": \"string\" }\n              },\n              \"required\": [\n                \"TABNAM\",\n                \"MANDT\",\n                \"DOCNUM\",\n                \"DOCREL\",\n                \"STATUS\",\n                \"DIRECT\",\n                \"OUTMOD\",\n                \"IDOCTYP\",\n                \"MESTYP\",\n                \"SNDPOR\",\n                \"SNDPRT\",\n                \"SNDPRN\",\n                \"RCVPOR\",\n                \"RCVPRT\",\n                \"RCVPRN\",\n                \"CREDAT\",\n                \"CRETIM\",\n                \"SERIAL\"\n              ]\n            },\n            \"E1WPA01\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"FILIALE\": { \"type\": \"string\" },\n                  \"AENDKENNZ\": { \"type\": \"string\" },\n                  \"AKTIVDATUM\": { \"type\": \"string\" },\n                  \"AENDDATUM\": { \"type\": \"string\" },\n                  \"HAUPTEAN\": { \"type\": \"string\" },\n                  \"ARTIKELNR\": { \"type\": \"string\" },\n                  \"POSME\": { \"type\": \"string\" },\n                  \"ARTIKELNR_LONG\": { \"type\": \"string\" },\n                  \"E1WPA04\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                      \"type\": \"object\",\n                      \"properties\": {\n                        \"KONDART\": { \"type\": \"string\" },\n                        \"BEGINDATUM\": { \"type\": \"string\" },\n                        \"BEGINNZEIT\": { \"type\": \"string\" },\n                        \"ENDDATUM\": { \"type\": \"string\" },\n                        \"ENDZEIT\": { \"type\": \"string\" },\n                        \"E1WPA05\": {\n                          \"type\": \"object\",\n                          \"properties\": {\n                            \"VORZEICHEN\": { \"type\": \"string\" },\n                            \"KONDWERT\": { \"type\": \"string\" },\n                            \"MENGE\": { \"type\": \"string\" },\n                            \"CURRENCY\": { \"type\": \"string\" }\n                          },\n                          \"required\": [\n                            \"VORZEICHEN\",\n                            \"KONDWERT\",\n                            \"MENGE\",\n                            \"CURRENCY\"\n                          ]\n                        }\n                      },\n                      \"required\": [\n                        \"KONDART\",\n                        \"BEGINDATUM\",\n                        \"BEGINNZEIT\",\n                        \"ENDDATUM\",\n                        \"ENDZEIT\",\n                        \"E1WPA05\"\n                      ]\n                    }\n                  }\n                },\n                \"required\": [\n                  \"FILIALE\",\n                  \"AENDKENNZ\",\n                  \"AKTIVDATUM\",\n                  \"AENDDATUM\",\n                  \"HAUPTEAN\",\n                  \"ARTIKELNR\",\n                  \"POSME\",\n                  \"ARTIKELNR_LONG\",\n                  \"E1WPA04\"\n                ]\n              }\n            }\n          },\n          \"required\": [\"EDI_DC40\", \"E1WPA01\"]\n        }\n      },\n      \"required\": [\"IDOC\"]\n    }\n  },\n  \"required\": [\"WP_PLU03\"],\n   \"additionalProperties\": false,\n  \"errorMessage\": {\n    \"type:\": \"El tipo del campo $$ no corresponde\",\n    \"required\": \"El campo $$ es requerido.\",\n    \"additionalProperties\": \"La propiedad $$ no esta definida.\"\n  }\n}"
-       },
        "input": {
         "value": "{{input.data.body}}"
+       },
+       "body": {
+        "value": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"WP_PLU03\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"IDOC\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"EDI_DC40\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"TABNAM\": { \"type\": \"string\" },\n                \"MANDT\": { \"type\": \"string\" },\n                \"DOCNUM\":  { \n                  \"type\": \"string\",\n                  \"pattern\": \"^[0-9]+$\",\n                  \"errorMessage\": \"Debe ser un valor numerico\" \n                },\n                \"DOCREL\": { \"type\": \"string\" },\n                \"STATUS\": { \"type\": \"string\" },\n                \"DIRECT\": { \"type\": \"string\" },\n                \"OUTMOD\": { \"type\": \"string\" },\n                \"IDOCTYP\": { \"type\": \"string\" },\n                \"MESTYP\": { \"type\": \"string\" },\n                \"SNDPOR\": { \"type\": \"string\" },\n                \"SNDPRT\": { \"type\": \"string\" },\n                \"SNDPRN\": { \"type\": \"string\" },\n                \"RCVPOR\": { \"type\": \"string\" },\n                \"RCVPRT\": { \"type\": \"string\" },\n                \"RCVPRN\": { \"type\": \"string\" },\n                \"CREDAT\": { \"type\": \"string\" },\n                \"CRETIM\": { \"type\": \"string\" },\n                \"SERIAL\": { \"type\": \"string\" }\n              },\n              \"required\": [\n                \"TABNAM\",\n                \"MANDT\",\n                \"DOCNUM\",\n                \"DOCREL\",\n                \"STATUS\",\n                \"DIRECT\",\n                \"OUTMOD\",\n                \"IDOCTYP\",\n                \"MESTYP\",\n                \"SNDPOR\",\n                \"SNDPRT\",\n                \"SNDPRN\",\n                \"RCVPOR\",\n                \"RCVPRT\",\n                \"RCVPRN\",\n                \"CREDAT\",\n                \"CRETIM\",\n                \"SERIAL\"\n              ]\n            },\n            \"E1WPA01\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"FILIALE\": { \"type\": \"string\" },\n                  \"AENDKENNZ\": { \"type\": \"string\" },\n                  \"AKTIVDATUM\": { \"type\": \"string\" },\n                  \"AENDDATUM\": { \"type\": \"string\" },\n                  \"HAUPTEAN\": { \"type\": \"string\" },\n                  \"ARTIKELNR\": { \"type\": \"string\" },\n                  \"POSME\": { \"type\": \"string\" },\n                  \"ARTIKELNR_LONG\": { \"type\": \"string\" },\n                  \"E1WPA04\": {\n                    \"type\": \"array\",\n                    \"items\": {\n                      \"type\": \"object\",\n                      \"properties\": {\n                        \"KONDART\": { \"type\": \"string\" },\n                        \"BEGINDATUM\": { \"type\": \"string\" },\n                        \"BEGINNZEIT\": { \"type\": \"string\" },\n                        \"ENDDATUM\": { \"type\": \"string\" },\n                        \"ENDZEIT\": { \"type\": \"string\" },\n                        \"E1WPA05\": {\n                          \"type\": \"object\",\n                          \"properties\": {\n                            \"VORZEICHEN\": { \"type\": \"string\" },\n                            \"KONDWERT\": { \"type\": \"string\" },\n                            \"MENGE\": { \"type\": \"string\" },\n                            \"CURRENCY\": { \"type\": \"string\" }\n                          },\n                          \"required\": [\n                            \"VORZEICHEN\",\n                            \"KONDWERT\",\n                            \"MENGE\",\n                            \"CURRENCY\"\n                          ]\n                        }\n                      },\n                      \"required\": [\n                        \"KONDART\",\n                        \"BEGINDATUM\",\n                        \"BEGINNZEIT\",\n                        \"ENDDATUM\",\n                        \"ENDZEIT\",\n                        \"E1WPA05\"\n                      ]\n                    }\n                  }\n                },\n                \"required\": [\n                  \"FILIALE\",\n                  \"AENDKENNZ\",\n                  \"AKTIVDATUM\",\n                  \"AENDDATUM\",\n                  \"HAUPTEAN\",\n                  \"ARTIKELNR\",\n                  \"POSME\",\n                  \"ARTIKELNR_LONG\",\n                  \"E1WPA04\"\n                ]\n              }\n            }\n          },\n          \"required\": [\"EDI_DC40\", \"E1WPA01\"]\n        }\n      },\n      \"required\": [\"IDOC\"]\n    }\n  },\n  \"required\": [\"WP_PLU03\"],\n   \"additionalProperties\": false,\n  \"errorMessage\": {\n    \"type:\": \"El tipo del campo $$ no corresponde\",\n    \"required\": \"El campo $$ es requerido.\",\n    \"additionalProperties\": \"La propiedad $$ no esta definida.\"\n  }\n}"
        }
       }
      ]
@@ -699,10 +699,49 @@
   {
    "id": "061b63e3-d4a1-4bd3-9b36-57c0098622a3",
    "pos": {
-    "x": 1257,
-    "y": 364,
+    "h": 90,
     "w": 90,
-    "h": 90
+    "x": 1257,
+    "y": 364
+   },
+   "desc": "Permite realizar llamadas a postgres",
+   "icon": "󰆼",
+   "type": "databases/postgres",
+   "color": "#ee7d22",
+   "group": "Base de Datos",
+   "title": "Postgres",
+   "connect": [],
+   "interfaz": {
+    "inputs": [
+     "input"
+    ],
+    "outputs": [
+     "response",
+     "error"
+    ]
+   },
+   "properties": {
+    "type": {
+     "value": "manual"
+    },
+    "basic": {
+     "value": null
+    },
+    "credential": {
+     "value": null
+    },
+    "query": {
+     "value": ""
+    }
+   }
+  },
+  {
+   "id": "c0ccc85e-ffc5-4afb-bc0f-13ba846d7406",
+   "pos": {
+    "w": 90,
+    "h": 90,
+    "x": 1275.7,
+    "y": 529
    },
    "interfaz": {
     "inputs": [
@@ -728,12 +767,12 @@
      "value": ""
     }
    },
-   "title": "Postgres",
-   "desc": "Permite realizar llamadas a postgres",
+   "title": "Oracle",
+   "desc": "Permite realizar llamadas a oracle",
    "icon": "󰆼",
    "group": "Base de Datos",
    "color": "#ee7d22",
-   "type": "databases/postgres"
+   "type": "databases/oracle"
   }
  ],
  "subFlows": [
