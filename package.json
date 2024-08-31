@@ -1,8 +1,6 @@
 {
  "type": "module",
  "dependencies": {
-  "adm-zip": "^0.5.14",
-  "ajv": "^8.16.0",
   "axios": "^1.7.2",
   "bunyan": "^1.8.15",
   "connect-history-api-fallback": "^2.0.0",
@@ -14,15 +12,10 @@
   "express-session": "^1.18.0",
   "glob": "^10.4.5",
   "http-proxy-middleware": "^2.0.6",
-  "passport": "^0.7.0",
-  "passport-google-oauth20": "^2.0.0",
   "pg": "^8.12.0",
   "pg-hstore": "^2.3.4",
-  "sequelize": "^6.37.3",
-  "sqlite3": "^5.1.7",
   "swagger-jsdoc": "^6.2.8",
   "swagger-ui-express": "^5.0.0",
-  "ts-node": "^10.9.2",
   "uuid": "^10.0.0",
   "vue": "^3.4.31",
   "winston": "^3.13.1",
@@ -43,5 +36,5 @@
   "serverDB": "node ./server/index.js --force|| npx sequelize-cli db:seed:all",
   "sonar": "sonar-scanner   -Dsonar.projectKey=Rainkenpor_dinnger-process-2_AY8bEdYN7rc3z3McqeP5   -Dsonar.sources=.   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=sqp_6dddad5366df2d614c93b9c3e566fab7d85242cb"
  },
- "version": "2.5.0"
+ "version": "2.5.2"
 }

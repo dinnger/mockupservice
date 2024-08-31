@@ -107,7 +107,7 @@ export default class {
       pwd.on('close', (code) => {
         console.log(`[pip] child process exited with code ${code}`)
         // Al finalizar se inicia la ejecución python
-        const pwd2 = spawn('python3', ['./horizonServer/plugins/nodes/processing/_python/init.py', '--configfile', pythonFile.dirFile, '--port', serverInstance.port, '--path', url + '/socket.io'])
+        const pwd2 = spawn('python3', ['./horizonShare/plugins/nodes/processing/_python/init.py', '--configfile', pythonFile.dirFile, '--port', serverInstance.port, '--path', url + '/socket.io'])
         pwd2.stdout.on('data', (data) => {
           console.log(`[python] : ${data}`)
         })

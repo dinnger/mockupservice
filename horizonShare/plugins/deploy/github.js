@@ -148,9 +148,7 @@ export class Deploy {
       git push -f`
         exec(command, function (err, stdout, stderr) {
           if (!err) {
-            resolve({
-              urlGit
-            })
+            resolve({ urlGit })
           } else {
             reject(err)
           }

@@ -9,6 +9,7 @@ import fileUpload from 'express-fileupload'
 import session from 'express-session'
 import { createRequire } from 'node:module'
 import { Executions } from './workerExecute'
+import fs from 'fs'
 const require = createRequire(import.meta.url)
 const pack = require('../package.json')
 const version = pack.version || '0.0.0'
@@ -126,6 +127,39 @@ class WORKER {
       description: this.model.properties.description,
       version: this.model.properties.version
     }
+    const PATH_URL = process.env.PATH_URL?.slice(-1) === '/' ? process.env.PATH_URL.toString().slice(0, -1) : process.env.PATH_URL
+    const URL = process.env.BASE_URL ?? '' + PATH_URL
+
+    const swaggerFilePath = `${this.file}/_doc/swagger.json`
+    let swaggerFile
+    if (fs.existsSync(swaggerFilePath)) {
+      swaggerFile = <Object>JSON.parse(fs.readFileSync(swaggerFilePath, 'utf8'))
+      swaggerFile = {
+        ...swaggerFile,
+        info: {
+          name: `${this.model.properties.name}`,
+          description: this.model.properties.description,
+          version: this.model.properties.version
+        },
+        components: {
+          securitySchemes: {
+            bearerAuth: {
+              type: 'http',
+              scheme: 'bearer'
+            }
+          }
+        },
+        externalDocs: {
+          description: 'Find out more about Horizon',
+          url: 'https://github.com/dinnger/horizon'
+        },
+        servers: [
+          {
+            url: `${URL}/flow_${this.idModel}/`
+          }
+        ]
+      }
+    }
 
     /**
    * =====================================================================================================
@@ -134,8 +168,7 @@ class WORKER {
    * @description Documentación de la API.
    * =====================================================================================================
    */
-    const PATH_URL = process.env.PATH_URL?.slice(-1) === '/' ? process.env.PATH_URL.toString().slice(0, -1) : process.env.PATH_URL
-    const URL = process.env.BASE_URL ?? '' + PATH_URL
+
     const optionsSwagger = {
       definition: {
         openapi: '3.1.0',
@@ -152,6 +185,10 @@ class WORKER {
             }
           }
         },
+        externalDocs: {
+          description: 'Find out more about Horizon',
+          url: 'https://github.com/dinnger/horizon'
+        },
         servers: [
           {
             url: `${URL}/flow_${this.idModel}/`
@@ -160,7 +197,7 @@ class WORKER {
       },
       apis: ['./swagger/*.js']
     }
-    const specs = swaggerJsdoc(optionsSwagger)
+    const specs = swaggerFile || swaggerJsdoc(optionsSwagger)
     this.app.use(`${PATH_URL}/${this.type}_${this.idModel}/api-docs`, swaggerUi.serve, swaggerUi.setup(specs, {
       explorer: true,
       swaggerOptions: {

@@ -1,0 +1,333 @@
+{
+ "info": {
+  "title": "API Documentación",
+  "version": "1.0.0"
+ },
+ "paths": {
+  "/api/v1/song": {
+   "get": {
+    "summary": "Webhook 2",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object"
+        }
+       }
+      },
+      "description": "OK"
+     }
+    },
+    "parameters": [
+     {
+      "in": "query",
+      "name": "term",
+      "schema": {
+       "type": "string"
+      },
+      "required": true
+     }
+    ],
+    "description": "Call webhook"
+   }
+  },
+  "/api/v1/valid": {
+   "post": {
+    "summary": "Webhook 4",
+    "responses": {
+     "200": {
+      "content": {
+       "text/xml": {
+        "schema": {
+         "type": "string"
+        }
+       }
+      },
+      "description": "OK"
+     }
+    },
+    "description": "Call webhook",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/songv2": {
+   "get": {
+    "summary": "Webhook 3",
+    "responses": {
+     "200": {
+      "content": {
+       "text/xml": {
+        "schema": {
+         "type": "string"
+        }
+       }
+      },
+      "description": "OK"
+     }
+    },
+    "parameters": [
+     {
+      "in": "query",
+      "name": "artist",
+      "schema": {
+       "type": "string"
+      },
+      "required": true
+     }
+    ],
+    "description": "Call webhook"
+   }
+  },
+  "/api/v1/pricing": {
+   "post": {
+    "summary": "Webhook",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "status": {
+           "type": "string"
+          },
+          "message": {
+           "type": "string"
+          },
+          "idocNumber": {
+           "type": "string"
+          },
+          "description": {
+           "type": "string"
+          }
+         }
+        }
+       }
+      },
+      "description": "OK"
+     }
+    },
+    "description": "Call webhook",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "required": [
+         "WP_PLU03"
+        ],
+        "properties": {
+         "WP_PLU03": {
+          "type": "object",
+          "required": [
+           "IDOC"
+          ],
+          "properties": {
+           "IDOC": {
+            "type": "object",
+            "required": [
+             "EDI_DC40",
+             "E1WPA01"
+            ],
+            "properties": {
+             "E1WPA01": {
+              "type": "array",
+              "items": {
+               "type": "object",
+               "required": [
+                "FILIALE",
+                "AENDKENNZ",
+                "AKTIVDATUM",
+                "AENDDATUM",
+                "HAUPTEAN",
+                "ARTIKELNR",
+                "POSME",
+                "ARTIKELNR_LONG",
+                "E1WPA04"
+               ],
+               "properties": {
+                "POSME": {
+                 "type": "string"
+                },
+                "E1WPA04": {
+                 "type": "array",
+                 "items": {
+                  "type": "object",
+                  "required": [
+                   "KONDART",
+                   "BEGINDATUM",
+                   "BEGINNZEIT",
+                   "ENDDATUM",
+                   "ENDZEIT",
+                   "E1WPA05"
+                  ],
+                  "properties": {
+                   "E1WPA05": {
+                    "type": "object",
+                    "required": [
+                     "VORZEICHEN",
+                     "KONDWERT",
+                     "MENGE",
+                     "CURRENCY"
+                    ],
+                    "properties": {
+                     "MENGE": {
+                      "type": "string"
+                     },
+                     "CURRENCY": {
+                      "type": "string"
+                     },
+                     "KONDWERT": {
+                      "type": "string"
+                     },
+                     "VORZEICHEN": {
+                      "type": "string"
+                     }
+                    }
+                   },
+                   "ENDZEIT": {
+                    "type": "string"
+                   },
+                   "KONDART": {
+                    "type": "string"
+                   },
+                   "ENDDATUM": {
+                    "type": "string"
+                   },
+                   "BEGINDATUM": {
+                    "type": "string"
+                   },
+                   "BEGINNZEIT": {
+                    "type": "string"
+                   }
+                  }
+                 }
+                },
+                "FILIALE": {
+                 "type": "string"
+                },
+                "HAUPTEAN": {
+                 "type": "string"
+                },
+                "AENDDATUM": {
+                 "type": "string"
+                },
+                "AENDKENNZ": {
+                 "type": "string"
+                },
+                "ARTIKELNR": {
+                 "type": "string"
+                },
+                "AKTIVDATUM": {
+                 "type": "string"
+                },
+                "ARTIKELNR_LONG": {
+                 "type": "string"
+                }
+               }
+              }
+             },
+             "EDI_DC40": {
+              "type": "object",
+              "required": [
+               "TABNAM",
+               "MANDT",
+               "DOCNUM",
+               "DOCREL",
+               "STATUS",
+               "DIRECT",
+               "OUTMOD",
+               "IDOCTYP",
+               "MESTYP",
+               "SNDPOR",
+               "SNDPRT",
+               "SNDPRN",
+               "RCVPOR",
+               "RCVPRT",
+               "RCVPRN",
+               "CREDAT",
+               "CRETIM",
+               "SERIAL"
+              ],
+              "properties": {
+               "MANDT": {
+                "type": "string"
+               },
+               "CREDAT": {
+                "type": "string"
+               },
+               "CRETIM": {
+                "type": "string"
+               },
+               "DIRECT": {
+                "type": "string"
+               },
+               "DOCNUM": {
+                "type": "string",
+                "pattern": "^[0-9]+$"
+               },
+               "DOCREL": {
+                "type": "string"
+               },
+               "MESTYP": {
+                "type": "string"
+               },
+               "OUTMOD": {
+                "type": "string"
+               },
+               "RCVPOR": {
+                "type": "string"
+               },
+               "RCVPRN": {
+                "type": "string"
+               },
+               "RCVPRT": {
+                "type": "string"
+               },
+               "SERIAL": {
+                "type": "string"
+               },
+               "SNDPOR": {
+                "type": "string"
+               },
+               "SNDPRN": {
+                "type": "string"
+               },
+               "SNDPRT": {
+                "type": "string"
+               },
+               "STATUS": {
+                "type": "string"
+               },
+               "TABNAM": {
+                "type": "string"
+               },
+               "IDOCTYP": {
+                "type": "string"
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        },
+        "additionalProperties": false
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "openapi": "3.0.0"
+}
